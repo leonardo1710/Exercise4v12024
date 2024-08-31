@@ -1,0 +1,165 @@
+name: Autograding Tests
+'on':
+  - push
+  - repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Java 16
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'corretto'
+          java-version: '16'
+      - name: classReflection
+        id: classReflection
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: classReflection
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.classReflection
+          timeout: 1
+          max-score: 1
+      - name: classMembersCountReflection
+        id: classMembersCountReflection
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Class member count (1 Point)
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.classMembersCountReflection
+          timeout: 1
+          max-score: 1
+      - name: classConstructorsReflection
+        id: classConstructorsReflection
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: classConstructorsReflection
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.classConstructorsReflection
+          timeout: 1
+          max-score: 2
+      - name: getWidth
+        id: getWidth
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: getWidth
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.getWidth
+          timeout: 1
+          max-score: 1
+      - name: getHeight
+        id: getHeight
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: getHeight
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.getHeight
+          timeout: 1
+          max-score: 1
+      - name: getCount
+        id: getCount
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: getCount
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.getCount
+          timeout: 1
+          max-score: 1
+      - name: isInside1
+        id: isInside1
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: isInside1
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.isInside1
+          timeout: 1
+          max-score: 1
+      - name: isInside2
+        id: isInside2
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: isInside2
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.isInside2
+          timeout: 1
+          max-score: 1
+      - name: rectangleToString
+        id: rectangleToString
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: rectangleToString
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.rectangleToString
+          timeout: 10
+          max-score: 2
+      - name: union1
+        id: union1
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: union1
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.union1
+          timeout: 1
+          max-score: 1
+      - name: union2
+        id: union2
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: union2
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.union2
+          timeout: 1
+          max-score: 1
+      - name: intersection1
+        id: intersection1
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: intersection1
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.intersection1
+          timeout: 1
+          max-score: 1
+      - name: intersection2
+        id: intersection2
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: intersection2
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.intersection2
+          timeout: 1
+          max-score: 1
+      - name: generateRectangles
+        id: generateRectangles
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: generateRectangles
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.generateRectangles
+          timeout: 1
+          max-score: 1
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          classReflection_RESULTS: "${{steps.classReflection.outputs.result}}"
+          classMembersCountReflection_RESULTS: "${{steps.classMembersCountReflection.outputs.result}}"
+          classConstructorsReflection_RESULTS: "${{steps.classConstructorsReflection.outputs.result}}"
+          getWidth_RESULTS: "${{steps.getWidth.outputs.result}}"
+          getHeight_RESULTS: "${{steps.getHeight.outputs.result}}"
+          getCount_RESULTS: "${{steps.getCount.outputs.result}}"
+          isInside1_RESULTS: "${{steps.isInside1.outputs.result}}"
+          isInside2_RESULTS: "${{steps.isInside2.outputs.result}}"
+          rectangleToString_RESULTS: "${{steps.rectangleToString.outputs.result}}"
+          union1_RESULTS: "${{steps.union1.outputs.result}}"
+          union2_RESULTS: "${{steps.union2.outputs.result}}"
+          intersection1_RESULTS: "${{steps.intersection1.outputs.result}}"
+          intersection2_RESULTS: "${{steps.intersection2.outputs.result}}"
+          generateRectangles_RESULTS: "${{steps.generateRectangles.outputs.result}}"
+        with:
+          runners: classReflection,classMembersCountReflection,classConstructorsReflection,getWidth,getHeight,getCount,isInside1,isInside2,rectangleToString,union1,union2,intersection1,intersection2,generateRectangles

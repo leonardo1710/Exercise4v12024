@@ -18,92 +18,92 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '16'
-      - name: classReflection
-        id: classReflection
+      - name: class member count (1 point)
+        id: class-member-count-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: classReflection
-          setup-command: ''
-          command: gradle test --tests at.ac.fhcampuswien.AppTest.classReflection
-          timeout: 1
-          max-score: 1
-      - name: classMembersCountReflection
-        id: classMembersCountReflection
-        uses: classroom-resources/autograding-command-grader@v1
-        with:
-          test-name: Class member count (1 Point)
+          test-name: class member count (1 point)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.classMembersCountReflection
-          timeout: 1
+          timeout: 2
           max-score: 1
-      - name: classConstructorsReflection
-        id: classConstructorsReflection
+      - name: union2 (1 Point)
+        id: union2-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: classConstructorsReflection
+          test-name: union2 (1 Point)
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.union2
+          timeout: 1
+          max-score: 1
+      - name: Constructors (2 Points)
+        id: constructors-2-points
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: Constructors (2 Points)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.classConstructorsReflection
           timeout: 1
           max-score: 2
-      - name: getWidth
-        id: getWidth
+      - name: getWidth (1 Point)
+        id: getwidth-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: getWidth
+          test-name: getWidth (1 Point)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.getWidth
           timeout: 1
           max-score: 1
-      - name: getHeight
-        id: getHeight
+      - name: getHeight (1 Point)
+        id: getheight-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: getHeight
+          test-name: getHeight (1 Point)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.getHeight
           timeout: 1
           max-score: 1
-      - name: getCount
-        id: getCount
+      - name: getCount (1 Point)
+        id: getcount-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: getCount
+          test-name: getCount (1 Point)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.getCount
           timeout: 1
           max-score: 1
-      - name: isInside1
-        id: isInside1
+      - name: Point isInside (1 Point)
+        id: point-isinside-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: isInside1
+          test-name: Point isInside (1 Point)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.isInside1
           timeout: 1
           max-score: 1
-      - name: isInside2
-        id: isInside2
+      - name: Rectangle isInside (1 Point)
+        id: rectangle-isinside-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: isInside2
+          test-name: Rectangle isInside (1 Point)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.isInside2
           timeout: 1
           max-score: 1
-      - name: rectangleToString
-        id: rectangleToString
+      - name: toString (1 Point)
+        id: tostring-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: rectangleToString
+          test-name: toString (1 Point)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.rectangleToString
-          timeout: 10
-          max-score: 2
-      - name: union1
-        id: union1
+          timeout: 1
+          max-score: 1
+      - name: union1 (1 Point)
+        id: union1-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: union1
+          test-name: union1 (1 Point)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.union1
           timeout: 1
@@ -117,29 +117,29 @@ jobs:
           command: gradle test --tests at.ac.fhcampuswien.AppTest.union2
           timeout: 1
           max-score: 1
-      - name: intersection1
-        id: intersection1
+      - name: intersection1 (1 Point)
+        id: intersection1-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: intersection1
+          test-name: intersection1 (1 Point)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.intersection1
           timeout: 1
           max-score: 1
-      - name: intersection2
-        id: intersection2
+      - name: intersection2 (1 Point)
+        id: intersection2-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: intersection2
+          test-name: intersection2 (1 Point)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.intersection2
           timeout: 1
           max-score: 1
-      - name: generateRectangles
-        id: generateRectangles
+      - name: generateRectangles (1 Point)
+        id: generaterectangles-1-point
         uses: classroom-resources/autograding-command-grader@v1
         with:
-          test-name: generateRectangles
+          test-name: generateRectangles (1 Point)
           setup-command: ''
           command: gradle test --tests at.ac.fhcampuswien.AppTest.generateRectangles
           timeout: 1
@@ -147,19 +147,19 @@ jobs:
       - name: Autograding Reporter
         uses: classroom-resources/autograding-grading-reporter@v1
         env:
-          classReflection_RESULTS: "${{steps.classReflection.outputs.result}}"
-          classMembersCountReflection_RESULTS: "${{steps.classMembersCountReflection.outputs.result}}"
-          classConstructorsReflection_RESULTS: "${{steps.classConstructorsReflection.outputs.result}}"
-          getWidth_RESULTS: "${{steps.getWidth.outputs.result}}"
-          getHeight_RESULTS: "${{steps.getHeight.outputs.result}}"
-          getCount_RESULTS: "${{steps.getCount.outputs.result}}"
-          isInside1_RESULTS: "${{steps.isInside1.outputs.result}}"
-          isInside2_RESULTS: "${{steps.isInside2.outputs.result}}"
-          rectangleToString_RESULTS: "${{steps.rectangleToString.outputs.result}}"
-          union1_RESULTS: "${{steps.union1.outputs.result}}"
-          union2_RESULTS: "${{steps.union2.outputs.result}}"
-          intersection1_RESULTS: "${{steps.intersection1.outputs.result}}"
-          intersection2_RESULTS: "${{steps.intersection2.outputs.result}}"
-          generateRectangles_RESULTS: "${{steps.generateRectangles.outputs.result}}"
+          CLASS-MEMBER-COUNT-1-POINT_RESULTS: "${{steps.class-member-count-1-point.outputs.result}}"
+          UNION2-1-POINT_RESULTS: "${{steps.union2-1-point.outputs.result}}"
+          CONSTRUCTORS-2-POINTS_RESULTS: "${{steps.constructors-2-points.outputs.result}}"
+          GETWIDTH-1-POINT_RESULTS: "${{steps.getwidth-1-point.outputs.result}}"
+          GETHEIGHT-1-POINT_RESULTS: "${{steps.getheight-1-point.outputs.result}}"
+          GETCOUNT-1-POINT_RESULTS: "${{steps.getcount-1-point.outputs.result}}"
+          POINT-ISINSIDE-1-POINT_RESULTS: "${{steps.point-isinside-1-point.outputs.result}}"
+          RECTANGLE-ISINSIDE-1-POINT_RESULTS: "${{steps.rectangle-isinside-1-point.outputs.result}}"
+          TOSTRING-1-POINT_RESULTS: "${{steps.tostring-1-point.outputs.result}}"
+          UNION1-1-POINT_RESULTS: "${{steps.union1-1-point.outputs.result}}"
+          UNION2_RESULTS: "${{steps.union2.outputs.result}}"
+          INTERSECTION1-1-POINT_RESULTS: "${{steps.intersection1-1-point.outputs.result}}"
+          INTERSECTION2-1-POINT_RESULTS: "${{steps.intersection2-1-point.outputs.result}}"
+          GENERATERECTANGLES-1-POINT_RESULTS: "${{steps.generaterectangles-1-point.outputs.result}}"
         with:
-          runners: classReflection,classMembersCountReflection,classConstructorsReflection,getWidth,getHeight,getCount,isInside1,isInside2,rectangleToString,union1,union2,intersection1,intersection2,generateRectangles
+          runners: class-member-count-1-point,union2-1-point,constructors-2-points,getwidth-1-point,getheight-1-point,getcount-1-point,point-isinside-1-point,rectangle-isinside-1-point,tostring-1-point,union1-1-point,union2,intersection1-1-point,intersection2-1-point,generaterectangles-1-point
